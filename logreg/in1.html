@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedpark</title>
+    <link href="st1.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.png" alt="OnlineParkingSystem.com">
+        </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#about-us">About Us</a></li>
+            <li class="item"><a href="#pricing">Pricing</a></li>
+            <li class="item"><a href="#contact-us">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary">Welcome to SpeedPark</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque aut illum, dolorem, et vitae praesentium natus nemo maiores sint totam omnis molestias accusantium id. Soluta, nostrum amet? Facere, hic veniam.
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicin
+        </p>
+    </section>
+
+    <!-- login-->
+    <div class="login-box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="text" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <button type="button" onclick="showReservationForm()">Submit</button>
+        </form>
+
+        <div class="form" id="reservationForm">
+            <h2>Reservation Form</h2>
+            <form>
+                <input type="text" placeholder="Location" required>
+                <input type="date" required>
+                <input type="text" placeholder="Day" required>
+                <input type="time" required>
+
+                <!-- Changed to "Slot" placeholder -->
+                <input type="text" placeholder="Payment" required>
+                <div class="parking-slot vacant">1</div>
+                <div class="parking-slot vacant">2</div>
+                <div class="parking-slot vacant">3</div>
+                <div class="parking-slot vacant">4</div>
+                <!-- Add more parking slots as needed -->
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const parkingSlots = document.querySelectorAll('.parking-slot');
+
+                        parkingSlots.forEach(slot => {
+                            slot.addEventListener('click', function() {
+                                if (this.classList.contains('reserved')) {
+                                    this.classList.remove('reserved');
+                                    this.classList.add('vacant');
+                                } else {
+                                    this.classList.remove('vacant');
+                                    this.classList.add('reserved');
+                                }
+                            });
+                        });
+                    });
+                </script>
+                <button type="button">Reserve</button>
+            </form>
+        </div>
+    </div>
+    <!-- login-->
+
+    <section id="about-us">
+        <h1 class="h-primary center"> About Us </h1>
+    </section>
+
+    <section id="services-container">
+        <div id="services">
+            <div class="box">
+                <img src="w3.png" alt="">
+                <h2 class="h-secondary center"> Booking</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+            <div class="box">
+                <img src="w2.png" alt="">
+                <h2 class="h-secondary center"> Timing</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+            <div class="box">
+                <img src="w1.png" alt="">
+                <h2 class="h-secondary center"> Fare</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- pricing section -->
+    <section id="pricing" class="pricing_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h1>Our Pricing</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <h4 class="price">$10</h4>
+                        <h5 class="name">Basic</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box box-center">
+                        <h4 class="price">$30</h4>
+                        <h5 class="name">Premium</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <h4 class="price">$20</h4>
+                        <h5 class="name">Standard</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end pricing section -->
+
+    <footer id="contact-us">
+        <div class="center">
+            <h1 class="h-primary">Contact Us</h1>
+            <div id="contact-info">
+                <p><strong>Location:</strong> Your Location, City, Country</p>
+                <p><strong>Phone:</strong> +123 456 7890</p>
+                <p><strong>Email:</strong> info@example.com</p>
+            </div>
+            <div id="social-media">
+                <a href="#" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+            </div>
+        </div>
+    </footer>
+    <script src="j1.js"></script>
+
+    <script>
+        // Smooth scrolling for anchor links of js
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

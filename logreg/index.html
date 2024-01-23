@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speedpark</title>
+    <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <nav id="navbar">
+        <div id="logo">
+            <img src="logo.png" alt="OnlineParkingSystem.com">
+        </div>
+        <ul>
+            <li class="item"><a href="#home">Home</a></li>
+            <li class="item"><a href="#about-us">About Us</a></li>
+            <li class="item"><a href="#pricing">Pricing</a></li>
+            <li class="item"><a href="#contact-us">Contact Us</a></li>
+            <li class="item"><a href="#" onclick="openSignupModal()">Sign up</a></li>
+            <!-- Sign-up modal -->
+            <div id="signupModal" class="modal fullscreen">
+                <div class="modal-content">
+                    <span class="close" onclick="closeSignupModal()">&times;</span>
+                    <h2>Sign Up</h2>
+                    <form id="signupForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" pattern="A-Z" title="Only the letter 'Aa-Zz' allowed" required><br>
+
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" pattern="[0-9]{10}" title="Only 10-digit numbers allowed" required><br>
+
+                        <label for="vehicleId">Vehicle ID:</label>
+                        <input type="text" id="vehicleId" required><br>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" required><br>
+
+                        <button type="button" onclick="submitSignupForm()">Create Account</button>
+                    </form>
+                </div>
+            </div>
+
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="h-primary">Welcome to SpeedPark</h1>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque aut illum, dolorem, et vitae praesentium natus nemo maiores sint totam omnis molestias accusantium id. Soluta, nostrum amet? Facere, hic veniam.
+        </p>
+        <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicin
+        </p>
+    </section>
+
+    <!-- login-->
+    <div class="about__section">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="Username" required>
+                <input type="password" placeholder="Password" required>
+                <button type="button" onclick="showReservationForm()">Submit</button>
+            </form>
+
+            <div class="form" id="reservationForm">
+                <h2>Reservation Form</h2>
+                <form>
+                    <input type="text" placeholder="Location" required>
+                    <input type="date" required>
+                    <label for="startTime">Start Time:</label>
+                    <input type="time" id="startTime" required>
+
+                    <label for="startTime">End Time:</label>
+                    <input type="time" id="endTime" required>
+                    <label class="centered-label">esewa id:**********</label>
+
+                    <div class="dropdown">
+                        <button class="dropbtn">Payment Options</button>
+                        <div class="dropdown-content">
+                            <a href="#">Cash Payment</a>
+                            <a href="https://www.esewa.com.np/" target="_blank">eSewa Payment</a>
+                        </div>
+                    </div>
+                    <label>Book your parking slot:</label>
+                    <div class="parking-slot vacant">1</div>
+                    <div class="parking-slot vacant">2</div>
+                    <div class="parking-slot vacant">3</div>
+                    <div class="parking-slot vacant">4</div>
+                    <h4>Note:*Red is already reserved</h4>
+                    <h4>*Green is for vaccant</h4>
+
+                    <script>
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const parkingSlots = document.querySelectorAll('.parking-slot');
+
+                            parkingSlots.forEach(slot => {
+                                slot.addEventListener('click', function() {
+                                    if (this.classList.contains('reserved')) {
+                                        this.classList.remove('reserved');
+                                        this.classList.add('vacant');
+                                    } else {
+                                        this.classList.remove('vacant');
+                                        this.classList.add('reserved');
+                                    }
+                                });
+                            });
+                        });
+                    </script>
+                    <button type="button">Reserve</button>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- login-->
+
+    <section id="services-container">
+        <section id="about-us">
+            <h1 class="h-primary center"> About Us </h1>
+        </section>
+        <div id="services">
+            <div class="box">
+                <img src="w3.png" alt="">
+                <h2 class="h-secondary center"> Booking</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+            <div class="box">
+                <img src="w2.png" alt="">
+                <h2 class="h-secondary center"> Timing</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+            <div class="box">
+                <img src="w1.png" alt="">
+                <h2 class="h-secondary center"> Fare</h2>
+                <p class="center"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Omnis, asperiores odio non animi cum natus earum fugit consequuntur excepturi eos. Accusamus magnam quis enim. Odio quos aliquam animi nesciunt reprehenderit.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- pricing section -->
+    <section id="pricing" class="pricing_section layout_padding">
+        <div class="container">
+            <div class="heading_container heading_center">
+                <h1>Our Pricing</h1>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <h4 class="price">Rs.10/-</h4>
+                        <h5 class="name">Basic</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box box-center">
+                        <h4 class="price">Rs.20/-</h4>
+                        <h5 class="name">Standard</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="box">
+                        <h4 class="price">Rs.30/-</h4>
+                        <h5 class="name">Premium</h5>
+                        <p>Consequuntur iure, quam vero quidem minima obcaecati veniam, praesentium impedit quod repudiandae tempora amet deserunt rerum accusamus. Commodi qui, illum ad ipsa porro ipsum nostrum magni minus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end pricing section -->
+
+
+    <footer id="contact-us">
+        <div class="center">
+            <h1 class="h-primary">Contact Us</h1>
+            <div id="contact-info">
+                <p><strong>Location:</strong>Location, City, Country</p>
+                <p><strong>Phone:</strong> 9812345678</p>
+                <p><strong>Email:</strong> speedpark@example.com</p>
+            </div>
+            <div id="social-media">
+                <a href="#" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
+                <a href="#" target="_blank"><img src="twitter-icon.png" alt="Twitter"></a>
+                <a href="#" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+
+    <script>
+        //  links of js for scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
